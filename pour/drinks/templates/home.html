@@ -1,1 +1,13 @@
-<h1>Hello From Home</h1>
+{% extends 'partials/_base.html' %}
+
+{% block content %}
+{% include 'partials/_navbar.html' %}
+<br/>
+<div class = infoText >
+    <h3>Drink from Home! <br/> Find out what cocktails you can make with what's in your liquor cabinet</h3>
+</div>
+<div class = ingSearch>SEARCH BAR</div>
+<div class = ingList></div>
+<div></div>
+
+{% endblock %}
