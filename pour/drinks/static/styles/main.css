@@ -1,0 +1,12 @@
+body{
+    display: flex;
+    align-items: center;
+}
+
+h1{
+    color: blue;
+}
+
+.site_name{
+    background-color: yellow;
+}
