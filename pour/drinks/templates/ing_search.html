@@ -6,9 +6,11 @@
 
 <h2>Ingredients</h2>
 
-<div class = 'search'>
+{% include 'partials/_ingList.html' %}
+
+{% comment %} <div class = 'search'>
     <input type = 'text' name = 'search_bar' placeholder ='search' onchange = 'search_term'>
-</div>
+</div> {% endcomment %}
 
 {% for i in  mying%}
 <ul>
