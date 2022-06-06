@@ -1,8 +1,10 @@
 {% comment %} Links to Main pages {% endcomment %}
 <nav>
     <ul class='nav_bar'>
-        <li><a href = '{% url 'home'%}'>Home</a>
-        <li>Browse Cocktails</a>
-        <li><a href = '{% url 'about'%}'>About</a>
-        / BrowseCocktails / Random Drink / About / LogIn(CreateAccount)/
+        <li class = 'nav'><a href = '{% url 'home'%}'>Home</a></li>
+        <li class = 'nav'>Browse Cocktails</li>
+        <li class = 'nav'>Random Cocktail</li>
+        <li class = 'nav'>Login/Your Account</li>
+        <li class = 'nav'><a href = '{% url 'about'%}'>About</a></li>
+    </ul>
     </nav>

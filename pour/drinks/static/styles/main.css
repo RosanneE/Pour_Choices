@@ -1,12 +1,46 @@
+/* *{
+    border-width:  2px; 
+    border-style: solid;
+    border-color: red;
+} */
+
 body{
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    margin: auto
 }
 
 h1{
-    color: blue;
+    color: #23022E;
+    text-align: center;
+}
+
+.header_text{
+    text-align: center;
+}
+
+li, .nav_bar {
+    
+    display: inline;
+    margin: 8px;
+    justify-content: space-between;
+}
+
+.nav{   
+    color: #F9EBFE;
+    padding: 8px;
+    background-color: #23022E;;
+    border-radius: 4px;
 }
 
 .site_name{
-    background-color: yellow;
+   align-items: center;
+}
+
+.flex-item{
+    margin:auto
+}
+
+a{
+    color: #F9EBFE;
 }
