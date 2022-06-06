@@ -14,23 +14,15 @@ class Home(TemplateView):
     def get_context_data(self, **kwargs): 
         context = super().get_context_data(**kwargs)
         # Get gets search param
-        name = self.request.GET.get("name")
+        name = self.request.GET.get("ingredient")
         # If param, will filter by param
         if name != None:
             context['ingredients'] = Ingredients.objects.filter(ingredient__icontains=name).values
+            context["header"] = f'Ingredients containing "{name}"'
         else:
             context['ingredients'] = Ingredients.objects.all().values
+            context["header"] = "Ingredients"
         return context
-
-# def home(request):
-#     mying = Ingredients.objects.all().values
-#     mydrinks = Drinks.objects.all().values
-#     template = loader.get_template('home.html')  
-#     context = {
-#         'mying' : mying,
-#         'mydrinks' : mydrinks
-#     }
-#     return HttpResponse(template.render(context, request))
 
 def about(request):
     template = loader.get_template('about.html')

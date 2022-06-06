@@ -7,8 +7,8 @@
 body{
     display: flex;
     flex-direction: column;
-    padding: 10%;
-    margin: 10%;
+    padding: 1% 4%;
+    margin: 1% 4%;
 }
 
 button{
@@ -21,15 +21,28 @@ h1{
     /* background-color: red; */
 }
 
+nav {
+    text-align: center;
+}
+
+
 .header_text{
+    justify-content: center;
+}
+
+.infoText{
     text-align: center;
 }
 
 li, .nav_bar {
     text-align: center;
-    display: inline;
+    display: inline-block;
     margin: 8px;
-    justify-content: space-between;
+    text-align: center;
+}
+
+.nav_bar{
+    text-align: center;
 }
 
 .nav{   

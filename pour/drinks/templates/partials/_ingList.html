@@ -7,11 +7,16 @@
             <input class = "input" type = "text" name = "ingredient" placeholder = "Search Ingredients" />
         </div>
         <div class = "control">
-            <input class = "button is-success" type = "submit" value = "search" />
+            <input class = "button is-success" type = "submit" value = "Search" />
         </div>
     </div>
-    <button><a class="button" href="{% url 'home' %}">Clear Search</a></button>
+
+    <input type="button" onclick="location.href='{% url 'home' %}'" value="Clear Search" />
+
 </form>
+
+<h2>{{header}}</h2>
+
 
 {% comment %} Ingredient list {% endcomment %}
 <div class="ingredient_filtered_list">
