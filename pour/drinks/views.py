@@ -43,12 +43,12 @@ class Index(TemplateView):
 class DrinksCreate(CreateView):
     model = Drinks
     fields = ['drink_name','drink_ingredients']
-    template_name = 'createCocktail.html'
+    template_name = 'create_cocktail.html'
     success_url = '/create/'
 
 class CocktailShow(DetailView):
     model = Drinks
-    template_name = 'cocktail_show'
+    template_name = 'cocktail_show.html'
 
 def about(request):
     template = loader.get_template('about.html')
