@@ -20,6 +20,8 @@
 {% comment %} Cocktail list {% endcomment %}
 <div class="cocktail_filtered_list">
     {% for drink in drinks%}
+    <a class = dList href = {%url 'home'%}>
     <h4>{{drink.drink_name}}</h4>
+    </a>
     {% endfor %}
 </div>

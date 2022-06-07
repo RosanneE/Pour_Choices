@@ -11,6 +11,7 @@ button{
 
 h1{
     color: #23022E;
+    background-color: red;
     text-align: center;
     /* background-color: red; */
 }
@@ -22,6 +23,10 @@ nav {
 
 .header_text{
     justify-content: center;
+}
+
+a.dList:hover{
+    color: #23022E;
 }
 
 .infoText{
