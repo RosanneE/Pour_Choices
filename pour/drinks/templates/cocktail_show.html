@@ -1,13 +1,15 @@
-{% extends 'partials/_base.html' %}
-
-{% block content %}
+{% extends 'partials/_base.html' %} 
+{% block content %} 
 {% include 'partials/_navbar.html' %}
-<br/>
-<div>
-<h2>Cocktail Name</h2>
-<h3>Ingredients</h3>
-<h3>Recipie</h3>
 
+<br />
+<div class="add_update">
+  <div class="update">
+    <h2>{{drinks.drink_name}}</h2>
+    <h3>{{drinks.drink_ingredients}}</h3>
+    <h3>Recipie</h3>
+    <button class = 'update_button'><a href = '{% url 'cocktail_update' drinks.id %}'>Update</a></button>
+  </div>
 </div>
-{% include 'partials/_footer.html' %}
+{% include 'partials/_footer.html' %} 
 {% endblock %}

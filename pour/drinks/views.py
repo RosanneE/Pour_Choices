@@ -1,13 +1,12 @@
-from multiprocessing import context
-from pickle import NONE
-from unicodedata import name
+import imp
+import django
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from django.http import HttpResponse, HttpResponseRedirect
 from django.template import loader
 from django.views.generic import DetailView
 from django.urls import reverse
-
+from pickle import NONE
 from drinks.models import Drinks, Ingredients
 
 class Home(TemplateView):
@@ -49,6 +48,15 @@ class DrinksCreate(CreateView):
 class CocktailShow(DetailView):
     model = Drinks
     template_name = 'cocktail_show.html'
+
+class CocktailUpdate(UpdateView):
+    model = Drinks
+    fields = ['drink_name','drink_ingredients']
+    template_name = 'cocktail_update.html'
+
+    def get_success_url(self):
+        return reverse('cocktail_show', kwargs={'pk': self.object.pk})
+
 
 def about(request):
     template = loader.get_template('about.html')
