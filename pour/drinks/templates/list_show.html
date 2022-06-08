@@ -10,15 +10,12 @@
   </div> 
 
   <div class="ingredient_filtered_list">
-    <h4>{{lists.drinks_list}}</h4>
-    <h1>HERE</h1>
-</div> 
-{% comment %} <div class="ingredient_filtered_list">
-    {% for list in lists%}
-    <h4>{{lists.list_title}}</h4>
-    <h1>HERE</h1>
+    {% for drink in lists.drink_in_list.all%}
+    <a class = 'dList' href = '/drinks/index/{{drink.id}}'>
+    <h4>{{drink.drink_name}}</h4>
+    </a>
     {% endfor %}
-</div>  {% endcomment %}
+  </div> 
 </div>
 {% include 'partials/_footer.html' %} 
 {% endblock %}
