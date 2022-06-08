@@ -5,6 +5,8 @@
 {% comment %} Ingredient list {% endcomment %}
 <div class="list_list">
     {% for list in lists%}
-    <h4>{{list.list_title}}</h4>
+    <a class = 'lList'href = '{{list.id}}'>
+        <h4>{{list.list_title}}</h4>
+    </a>
     {% endfor %}
 </div>

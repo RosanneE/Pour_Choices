@@ -1,0 +1,24 @@
+{% extends 'partials/_base.html' %} 
+{% block content %} 
+{% include 'partials/_navbar.html' %}
+
+<br />
+<div class="add_update">
+  <h1>HELLO Y'ALL</h1>
+  <div class="show_list">
+    <h2>{{lists.list_title}}</h2>
+  </div> 
+
+  <div class="ingredient_filtered_list">
+    <h4>{{lists.drinks_list}}</h4>
+    <h1>HERE</h1>
+</div> 
+{% comment %} <div class="ingredient_filtered_list">
+    {% for list in lists%}
+    <h4>{{lists.list_title}}</h4>
+    <h1>HERE</h1>
+    {% endfor %}
+</div>  {% endcomment %}
+</div>
+{% include 'partials/_footer.html' %} 
+{% endblock %}

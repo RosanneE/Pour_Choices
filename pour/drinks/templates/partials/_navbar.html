@@ -3,12 +3,7 @@
     <ul class='nav_bar'>
         <li class = 'nav'><a class = "nav_link" href = '{% url 'home'%}'>Home</a></li>
         <li class = 'nav'><a class = "nav_link" href = '{% url 'index'%}'>All Cocktails</a></li>
-
-        {% comment %} Randomize  {% endcomment %}
-        {% comment %} Currently links to cocktail with pk of one {% endcomment %}
-        <li class = 'nav'><a class = "nav_link" href = '{% url 'cocktail_show' 1 %}'>Random</a></li>
-
-
+        <li class = 'nav'><a class = "nav_link" href = '/drinks/index/{{curr_rand_drink}}'>Random</a></li>
         <li class = 'nav'><a class = "nav_link" href = '{% url 'my_page'%}'>My Account</a></li>
         <li class = 'nav'><a class = "nav_link" href = '{% url 'about'%}'>About</a></li>
     </ul>

@@ -1,5 +1,5 @@
-import imp
-import django
+from multiprocessing import context
+import random
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView
 from django.http import HttpResponse, HttpResponseRedirect
@@ -15,6 +15,8 @@ class Home(TemplateView):
         context = super().get_context_data(**kwargs)
         # Get gets search param
         name = self.request.GET.get("ingredient")
+        curr_rand_drink =RandomNumber()
+        context['curr_rand_drink'] = curr_rand_drink
         # If param, will filter by param
         if name != None:
             context['ingredients'] = Ingredients.objects.filter(ingredient__icontains=name).values()
@@ -30,6 +32,8 @@ class Index(TemplateView):
         context = super().get_context_data(**kwargs)
         # Get gets search param
         name = self.request.GET.get("drink_name")
+        curr_rand_drink =RandomNumber()
+        context['curr_rand_drink'] = curr_rand_drink
         if name != None:
             context['drinks'] = Drinks.objects.filter(drink_name__icontains=name).values()
             context["headerC"] = f'Cocktails containing "{name}"'
@@ -48,6 +52,20 @@ class DrinksCreate(CreateView):
 class CocktailShow(DetailView):
     model = Drinks
     template_name = 'cocktail_show.html'
+    def get_context_data(self, **kwargs): 
+        context = super().get_context_data(**kwargs)
+        curr_rand_drink =RandomNumber()
+        context['curr_rand_drink'] = curr_rand_drink
+        return context
+
+class ListShow(DetailView):
+    model = Lists
+    template_name = 'list_show.html'
+    def get_context_data(self, **kwargs): 
+        context = super().get_context_data(**kwargs)
+        curr_rand_drink =RandomNumber()
+        context['curr_rand_drink'] = curr_rand_drink
+        return context
 
 class CocktailUpdate(UpdateView):
     model = Drinks
@@ -62,20 +80,34 @@ class MyPage(TemplateView):
     def get_context_data(self, **kwargs): 
         context = super().get_context_data(**kwargs)
         context['lists'] = Lists.objects.all().values()
+        curr_rand_drink =RandomNumber()
+        context['curr_rand_drink'] = curr_rand_drink
         return context
 
-def about(request):
-    template = loader.get_template('about.html')
-    return HttpResponse(template.render({},request))
+class About(TemplateView):
+    template_name = 'about.html'
+    def get_context_data(self, **kwargs): 
+        context = super().get_context_data(**kwargs)
+        curr_rand_drink =RandomNumber()
+        context['curr_rand_drink'] = curr_rand_drink
+        return context
 
 
 def ing_search(request):
     mying = Ingredients.objects.filter(ingredient__icontains='i').values
-    template = loader.get_template('ing_search.html')  
-    context = {
+    template = loader.get_template('ing_search.html') 
+    curr_rand_drink =RandomNumber()
+    context = {  
+        'curr_rand_drink' : curr_rand_drink,
         'mying' : mying,
     }
     return HttpResponse(template.render(context, request))
 
+def RandomNumber():
+    var = list(Drinks.objects.all())
+    rand_drink = random.sample(var,1)
+    print(type(rand_drink[0].id))
+    return(int(rand_drink[0].id))
+    
 
 
