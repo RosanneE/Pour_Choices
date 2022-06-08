@@ -41,7 +41,7 @@ class Index(TemplateView):
 
 class DrinksCreate(CreateView):
     model = Drinks
-    fields = ['drink_name','drink_ingredients']
+    fields = ['drink_name','drink_ingredients', 'recipie', 'glass', 'tags']
     template_name = 'create_cocktail.html'
     success_url = '/create/'
 
@@ -51,7 +51,7 @@ class CocktailShow(DetailView):
 
 class CocktailUpdate(UpdateView):
     model = Drinks
-    fields = ['drink_name','drink_ingredients']
+    fields = ['drink_name','drink_ingredients', 'recipie', 'glass', 'tags']
     template_name = 'cocktail_update.html'
 
     def get_success_url(self):
