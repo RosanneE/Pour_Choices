@@ -1,6 +1,6 @@
 gunicorn
 Django
-django-heroku
+django-on-heroku
 psycopg2
 psycopg2-binary
 dj-database-url
