@@ -4,7 +4,6 @@
 
 <br />
 <div class="add_update">
-  <h1>HELLO Y'ALL</h1>
   <div class="show_list">
     <h2>{{lists.list_title}}</h2>
   </div> 
@@ -15,6 +14,7 @@
     <h4>{{drink.drink_name}}</h4>
     </a>
     {% endfor %}
+    <button class = 'update_button'><a href = '{% url 'list_update' lists.id %}'>Update</a></button>
   </div> 
 </div>
 {% include 'partials/_footer.html' %} 

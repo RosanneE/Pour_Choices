@@ -1,3 +1,5 @@
+{% comment %} CHECK TO SEE IF I AM ACCTUALLY USING THIS {% endcomment %}
+
 {% extends 'partials/_base.html' %}
 
 {% block content %}
@@ -7,10 +9,6 @@
 <h2>Ingredients</h2>
 
 {% include 'partials/_ingList.html' %}
-
-{% comment %} <div class = 'search'>
-    <input type = 'text' name = 'search_bar' placeholder ='search' onchange = 'search_term'>
-</div> {% endcomment %}
 
 {% for i in  mying%}
 <ul>

@@ -56,7 +56,6 @@ class ListCreate(CreateView):
     def get_success_url(self):
         return reverse('list_show', kwargs={'pk': self.object.pk})
 
-
 class CocktailShow(DetailView):
     model = Drinks
     template_name = 'cocktail_show.html'
@@ -82,6 +81,14 @@ class CocktailUpdate(UpdateView):
     # success_url = '/index/'
     def get_success_url(self):
         return reverse('cocktail_show', kwargs={'pk': self.object.pk})
+
+class ListUpdate(UpdateView):
+    model = Lists
+    fields = ['list_title','list_descriptions']
+    template_name = 'list_update.html'
+    # success_url = '/index/'
+    def get_success_url(self):
+        return reverse('list_show', kwargs={'pk': self.object.pk})
 
 class MyPage(TemplateView):
     template_name = "my_page.html"
