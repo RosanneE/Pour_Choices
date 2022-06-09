@@ -12,8 +12,7 @@
 </div>
 <div class= 'lists'>
     <h3>My Lists</h3>
-    <button> New List</Button>
-    <div class = 'my_lists'>
+    <input type="button" onclick="location.href='{% url 'list_create' %}'" value="Create List" />
         {% include 'partials/_list_of_lists.html' %}
     </div>
 </div>

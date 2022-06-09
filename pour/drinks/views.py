@@ -50,9 +50,9 @@ class DrinksCreate(CreateView):
         return reverse('cocktail_show', kwargs={'pk': self.object.pk})
 
 class ListCreate(CreateView):
-    model = List
-    fields = ['list_title','list_description']
-    template_name = 'create_list.html'
+    model = Lists
+    fields = ['list_title','list_descriptions']
+    template_name = 'list_create.html'
     def get_success_url(self):
         return reverse('list_show', kwargs={'pk': self.object.pk})
 
