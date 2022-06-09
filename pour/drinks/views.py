@@ -1,5 +1,6 @@
 from multiprocessing import context
 import random
+from typing import List
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView
 from django.http import HttpResponse, HttpResponseRedirect
@@ -48,6 +49,13 @@ class DrinksCreate(CreateView):
     def get_success_url(self):
         return reverse('cocktail_show', kwargs={'pk': self.object.pk})
 
+class ListCreate(CreateView):
+    model = List
+    fields = ['list_title','list_description']
+    template_name = 'create_list.html'
+    def get_success_url(self):
+        return reverse('list_show', kwargs={'pk': self.object.pk})
+
 
 class CocktailShow(DetailView):
     model = Drinks
@@ -91,7 +99,6 @@ class About(TemplateView):
         curr_rand_drink =RandomNumber()
         context['curr_rand_drink'] = curr_rand_drink
         return context
-
 
 def ing_search(request):
     mying = Ingredients.objects.filter(ingredient__icontains='i').values
