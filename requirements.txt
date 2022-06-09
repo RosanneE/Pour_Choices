@@ -1,0 +1,19 @@
+gunicorn
+Django
+django-heroku
+psycopg2
+psycopg2-binary
+dj-database-url
+python-dotenv
+
+
+
+
+
+# django-appconf
+# django-compressor
+# django-sass-processor
+# libsass
+# whitenoise
+# django-environ
+# python-decouple
