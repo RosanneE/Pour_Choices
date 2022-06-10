@@ -16,12 +16,26 @@ button{
 h1{
     color: #23022E;
     text-align: center;
+    background-color: red;
 }
 
 nav {
     text-align: center;
 }
 
+.column {
+    flex-direction: column;
+    flex-basis: 100%;
+    flex: 1;
+    background-color: red;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+  }
 
 .header_text{
     justify-content: center;
