@@ -1,2 +1,1 @@
-web: gunicorn 
-pour.wsgi
+web: gunicorn pour.wsgi
