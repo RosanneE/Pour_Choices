@@ -1,0 +1,24 @@
+{% extends 'partials/_base.html' %} 
+{% block content %} 
+{% include 'partials/_navbar.html' %}
+
+<br />
+<div class="add_update">
+  <div class="show_list">
+    <h2>{{lists.list_title}}</h2>
+  </div> 
+
+  <div class="ingredient_filtered_list">
+    {% for drink in lists.drink_in_list.all%}
+    <a class = 'dList' href = '{{drink.id}}'>
+    <h4>{{drink.drink_name}}</h4>
+    </a>
+    {% endfor %}
+    <button class = 'update_button'><a href = '{% url 'list_update' lists.id %}'>Update</a></button>
+  </div> 
+  <div>
+  <td><a href='{% url 'list_delete' lists.id %}' style="color:red">Delete List</a></td> 
+  </div>
+</div>
+{% include 'partials/_footer.html' %} 
+{% endblock %}

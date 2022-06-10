@@ -1,0 +1,17 @@
+{% extends 'partials/_base.html' %}
+
+{% block content %}
+{% include 'partials/_navbar.html' %}
+<br/>
+<div class = 'infoText' >
+    <h4 class = 'header_text'>Drink from Home! <br/> Find out what cocktails you can make with what's in your liquor cabinet</h4>
+</div>
+<div class = 'ingList'>
+    {% include 'partials/_ingList.html' %}
+</div>
+<div>{% include 'partials/_my_ing.html' %}</div>
+<div>
+    {% include 'partials/_menu.html' %}
+</div>
+{% include 'partials/_footer.html' %}
+{% endblock %}

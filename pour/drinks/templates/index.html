@@ -1,0 +1,18 @@
+{% extends 'partials/_base.html' %}
+
+{% block content %}
+{% include 'partials/_navbar.html' %}
+<br/>
+<div class = 'page_title' >
+    <h2 class = 'header_text'>Cocktail List </h2>
+</div>
+<div class = 'cocktail_list'>
+    <div>
+    <input type="button" onclick="location.href='{% url 'create/' %}'" value="Add Cocktail" />
+    <div>
+    <br/>
+    {% include 'partials/_cocktail_filter.html' %}
+</div>
+<div></div>
+{% include 'partials/_footer.html' %}
+{% endblock %}

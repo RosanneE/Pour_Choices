@@ -1,0 +1,63 @@
+a{
+    color: #23022E;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    padding: 1% 4%;
+    margin: 1% 4%;
+}
+
+button{
+    color: #23022E;
+}
+
+h1{
+    color: #23022E;
+    text-align: center;
+}
+
+nav {
+    text-align: center;
+}
+
+
+.header_text{
+    justify-content: center;
+}
+
+a.nav_link{
+    color: #F9EBFE;
+}
+
+.infoText{
+    text-align: center;
+}
+
+li, .nav_bar {
+    text-align: center;
+    display: inline-block;
+    margin: 8px;
+    text-align: center;
+}
+
+.nav_bar{
+    text-align: center;
+}
+
+.nav{   
+    color: #F9EBFE;
+    padding: 8px;
+    background-color: #23022E;;
+    border-radius: 4px;
+}
+
+.site_name{
+   align-items: center;
+}
+
+.flex-item{
+    margin:auto
+}
+

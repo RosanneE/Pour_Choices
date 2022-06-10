@@ -1,0 +1,8 @@
+<h2>My Cocktail Menu</h2>
+
+{% comment %} Ingredient list {% endcomment %}
+<div class="my_ing_list">
+    {% for ingredient in ingredients%}
+    <h4>{{ingredient.ingredient}}</h4>
+    {% endfor %}
+</div>
