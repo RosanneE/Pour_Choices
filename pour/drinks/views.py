@@ -22,9 +22,11 @@ class Home(TemplateView):
         # If param, will filter by param
         if name != None:
             context['ingredients'] = Ingredients.objects.filter(ingredient__icontains=name).values()
+            context['drinks'] = Drinks.objects.all().values()
             context["header"] = f'Ingredients containing "{name}"'
         else:
             context['ingredients'] = Ingredients.objects.all().values()
+            context['drinks'] = Drinks.objects.all().values()
             context["header"] = "Ingredients"
         return context
 
@@ -108,13 +110,6 @@ class About(TemplateView):
         context['curr_rand_drink'] = curr_rand_drink
         return context
 
-# class ListDrinkAssoc(View):
-#     assoc = request.GET.get("assoc")
-#     if assoc == "remove":
-#         Lists.objects.get(pk=pk).drinks.remove(drink_pk)
-#     if assoc == "add":
-#         Lists.objects.get(pk=pk).drinks.add(drink_pk)
-
 def ListDelete(request,id):
     list = Lists.objects.get(id=id)
     list.delete()
@@ -130,7 +125,7 @@ def ing_search(request):
     }
     return HttpResponse(template.render(context, request))
 
-
+ 
 
 def RandomNumber():
     var = list(Drinks.objects.all())

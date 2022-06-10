@@ -1,5 +1,12 @@
+/* *{
+    border: 2px;
+    border-color: red;
+    border-style: solid;
+} */
+
 a{
     color: #23022E;
+
 }
 
 body{
@@ -16,7 +23,15 @@ button{
 h1{
     color: #23022E;
     text-align: center;
-    background-color: red;
+}
+
+h4{
+    display: inline-block;
+}
+
+.icon{
+    font-size: 30px;
+    color: green;
 }
 
 nav {
@@ -27,7 +42,7 @@ nav {
     flex-direction: column;
     flex-basis: 100%;
     flex: 1;
-    background-color: red;
+    flex-wrap: wrap;
 }
 
 .row {
@@ -35,7 +50,7 @@ nav {
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-  }
+}
 
 .header_text{
     justify-content: center;
@@ -45,8 +60,16 @@ a.nav_link{
     color: #F9EBFE;
 }
 
+.footer{
+    text-align: center;
+}
+
 .infoText{
     text-align: center;
+}
+
+.inline{
+    flex-direction: column;
 }
 
 li, .nav_bar {
