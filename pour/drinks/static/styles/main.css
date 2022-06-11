@@ -6,7 +6,6 @@
 
 a{
     color: #23022E;
-
 }
 
 body{
@@ -25,13 +24,15 @@ h1{
     text-align: center;
 }
 
-h4{
+.ings{
     display: inline-block;
 }
 
 .icon{
     font-size: 30px;
     color: green;
+    height: 35px;
+    width: 35px;
 }
 
 nav {
@@ -60,6 +61,10 @@ a.nav_link{
     color: #F9EBFE;
 }
 
+.drink_list{
+    flex-direction: row;
+}
+
 .footer{
     text-align: center;
 }
@@ -78,6 +83,7 @@ li, .nav_bar {
     margin: 8px;
     text-align: center;
 }
+
 
 .nav_bar{
     text-align: center;

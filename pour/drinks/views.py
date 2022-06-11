@@ -17,8 +17,7 @@ class Home(TemplateView):
         context = super().get_context_data(**kwargs)
         # Get gets search param
         name = self.request.GET.get("ingredient")
-        curr_rand_drink =RandomNumber()
-        context['curr_rand_drink'] = curr_rand_drink
+        listTog = self.request.GET.get('listTog')
         # If param, will filter by param
         if name != None:
             context['ingredients'] = Ingredients.objects.filter(ingredient__icontains=name).values()
@@ -125,7 +124,8 @@ def ing_search(request):
     }
     return HttpResponse(template.render(context, request))
 
- 
+# def allDrinks():
+
 
 def RandomNumber():
     var = list(Drinks.objects.all())

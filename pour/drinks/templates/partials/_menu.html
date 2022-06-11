@@ -1,8 +1,20 @@
 <h2>My Cocktail Menu</h2>
 
 {% comment %} Ingredient list {% endcomment %}
-<div class="my_ing_list">
+<div >
     {% for drink in drinks%}
-    <h4>{{drink.drink_name}}</h4>
+
+        <h4 class="drink_list">{{drink.drink_name}}</h4>
+        
     {% endfor %}
 </div>
+
+
+{% comment %} 
+for this drink
+    if myingredients contains drink.drink_ingredients
+    if drink.drink_ingredients[0]
+        return drink
+
+
+{% endcomment %}
