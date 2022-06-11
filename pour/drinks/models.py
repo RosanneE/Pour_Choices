@@ -6,7 +6,7 @@ class Ingredients(models.Model):
     ingredient = models.CharField(max_length=200)
     ingredient_pk = models.CharField(max_length=300)
     ingredient_fk = models.CharField(max_length=300)
-    ingredient_string = models.CharField(max_length=200)
+    ingredient_boo = models.BooleanField(True)
     ingredient_list = ArrayField(models.CharField(max_length=100), default = list)
 
     def __str__(self):

@@ -1,17 +1,17 @@
 <h2>My Ingredients</h2>
 
 <script>
-    function toggleList(ingredient){
-        ingredient.ingredient_string = "list"
+    function toggleList(){
+        !ingredient.ingredient_boo ? True : False
     }
 </script>
 
 {% comment %} Ingredient list {% endcomment %}
 <div class="my_ing_list">
     {% for ingredient in ingredients%}
-        {% if ingredient.ingredient_string == "mylist"%}
+        {% if ingredient.ingredient_boo == True%}
             <div class = 'inline'>
-                <button class = 'icon' onclick=toggleList(ingredient)>-</button>
+                <button class = 'icon' onclick=toggleList()>-</button>
                 <h4 class = 'ings'>{{ingredient.ingredient}}</h4>
             </div>
         {% endif %}
