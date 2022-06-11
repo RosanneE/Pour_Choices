@@ -27,11 +27,11 @@ endcomment %} {% comment %} Search {% endcomment %}
     {% comment %} Ingredient list {% endcomment %}
     <div class="ingredient_filtered_list">
     {% for ingredient in ingredients%}
-    {% if ingredient.ingredient_string != "mylist"%}
-        <div class = 'inline'>
-            <button class = 'icon'>+</button>
-            <h4 class = 'ings'>{{ingredient.ingredient}}</h4>
-        </div>
-    {% endif %}
+        {% if ingredient.ingredient_boo == False%}
+            <div class = 'inline'>
+                <button class = 'icon'>+</button>
+                <h4 class = 'ings'>{{ingredient.ingredient}}</h4>
+            </div>
+        {% endif %}
     {% endfor %}
     </div>

@@ -17,7 +17,9 @@ class Home(TemplateView):
         context = super().get_context_data(**kwargs)
         # Get gets search param
         name = self.request.GET.get("ingredient")
-        listTog = self.request.GET.get('listTog')
+        my_menu = MyMenu()
+        print(my_menu)
+        context['my_menu'] = my_menu
         # If param, will filter by param
         if name != None:
             context['ingredients'] = Ingredients.objects.filter(ingredient__icontains=name).values()
@@ -133,5 +135,32 @@ def RandomNumber():
     # print(type(rand_drink[0].id))
     return(int(rand_drink[0].id))
     
+def MyMenu():
+    my_menu = []
+    i=0
+    j = 0
+    my_ing = Ingredients.objects.filter(ingredient_boo=True)
+    my_drinks = Drinks.objects.all()
+    # print(my_drinks)
+    for drink in my_drinks:
+        # print(drink.drink_name)
+        # print(type(drink.drink_ingredients[i]))
+        # print(type(str(my_ing[i])))
+        if i == (len(drink.drink_ingredients)-1):
+            my_menu.append(drink.drink_name)
+            return
+        elif drink.drink_ingredients[i] == str(my_ing[i]):
+            # print(drink.drink_name)
+            my_menu.append(drink.drink_name)
+            print(my_menu)
+            i=i+1
+            j=j+1
+            return
+        else:
+            # print('no')
+            return
+    print(my_menu)
+    return(my_menu)
+
 
 
