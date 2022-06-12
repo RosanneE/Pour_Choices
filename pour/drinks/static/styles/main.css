@@ -101,6 +101,14 @@ li,
     flex-direction: row;
 }
 
+.drink_name{
+    background-color: #1D3526;
+    color: white;
+    font-family: 'Righteous', cursive;
+    font-size: 30px;
+    padding: 5px;
+}
+
 .header_text, .footer {
     background-color: #23022E;
     color: white;
@@ -118,6 +126,10 @@ li,
 .ings {
     display: inline-block;
     font-size: 20px;
+}
+
+.ings_list{
+    color: #E08300;
 }
 
 .icon {
@@ -142,6 +154,16 @@ li,
     text-align: center;
 }
 
+a.lList{
+    text-decoration:underline;
+    font-size: 18px;
+}
+
+.my_lists{
+    font-size: 30px;
+    font-weight: bold;
+}
+
 .nav {
     color: #F9EBFE;
     padding: 10px;
@@ -149,7 +171,6 @@ li,
     border-radius: 4px;
     font-size: 20px;
 }
-
 
 .nav_bar {
     text-align: center;

@@ -6,13 +6,19 @@
 <div class = 'page_title' >
     <h2 class = 'header_text'>My Account</h2>
 </div>
-<div class = 'user_info'>
-    <h4> User Info<h4>
-    <h4> User Info<h4>
+<div class = 'user_info base_style'>
+    <h4> Username: DrinkingOfYou<h4>
+    <h4> User Bio: Sed quibusdam recusandae alias error harum maxime adipisci amet laborum. Perspiciatis 
+        minima nesciunt dolorem! Officiis iure rerum voluptates a cumque velit 
+        quibusdam sed amet tempora. Sit laborum ab, eius fugit doloribus tenetur 
+        fugiat, temporibus enim commodi iusto libero magni deleniti quod quam 
+        consequuntur! Commodi minima excepturi repudiandae velit hic maxime
+        doloremque.<h4>
 </div>
-<div class= 'lists'>
-    <h3>My Lists</h3>
-    <input type="button" onclick="location.href='{% url 'list_create' %}'" value="Create List" />
+<br/>
+<div class= 'lists base_style'>
+    <h3 class = 'my_lists'>My Lists</h3>
+    <input type="button" class = 'nav' onclick="location.href='{% url 'list_create' %}'" value="Create List" />
         {% include 'partials/_list_of_lists.html' %}
     </div>
 </div>
