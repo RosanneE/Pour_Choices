@@ -1,24 +1,20 @@
 
-
-<h2>My Cocktail Menu</h2>
+<div class = 'colthree'>
+<h2 class = 'list_title'>My Cocktail Menu</h2>
 
 {% comment %} Ingredient list {% endcomment %}
 <div >
     <h4>{{my_menu}}</h4>
     {% comment %} {% for item in my_menu%}
-
-        <h4 class="drink_list">{{item}}</h4>
-        
+        <h4 class="drink_list">{{item}}</h4>    
     {% endfor %} {% endcomment %}
-
+    
     {% comment %} {% for drink in drinks%}
-
-        <h4 class="drink_list">{{drink.drink_name}}</h4>
-        
+        <h4 class="drink_list">{{drink.drink_name}}</h4>        
     {% endfor %} {% endcomment %}
 </div>
 
-
+</div>
 {% comment %} 
 for this drink
     get myingredients

@@ -6,6 +6,7 @@
 
 a{
     color: #23022E;
+    text-decoration: none;
 }
 
 body{
@@ -19,6 +20,56 @@ button{
     color: #23022E;
 }
 
+.colone{
+    background-color: #1C424A;
+    color: white;
+    border-radius: 10px;
+    border-color: white;
+    border-width: 3px;
+    border-style: solid;
+    height: 400px;
+    padding: 5px;
+}
+
+.coltwo{
+    background-color: #E08300;
+    color: white;
+    border-radius: 10px;
+    border-color: white;
+    border-width: 3px;
+    border-style: solid;
+    height: 400px;
+    padding: 5px;
+}
+
+.base_style{
+    color: #1D3526;
+    border-color: #1D3526;
+    border-radius: 10px;
+    border-width: 3px;
+    border-style: solid;
+    padding: 10px;
+}
+
+.list_title{
+    text-align: center;
+}
+
+.control{
+    padding: 5px;
+}
+
+.colthree{
+    background-color: #8A0538;
+    color: white;
+    border-radius: 10px;
+    border-color: white;
+    border-width: 3px;
+    border-style: solid;
+    height: 400px;
+    padding: 5px;
+}
+
 h1{
     color: #23022E;
     text-align: center;
@@ -30,9 +81,11 @@ h1{
 
 .icon{
     font-size: 30px;
-    color: green;
-    height: 35px;
-    width: 35px;
+    color: #E08300;
+}
+.icon_two{
+    font-size: 40px;
+    color: #1C424A;
 }
 
 nav {
@@ -59,6 +112,8 @@ nav {
 
 a.nav_link{
     color: #F9EBFE;
+    font-weight: bold;
+    font-size: 18px;
 }
 
 .drink_list{
@@ -98,6 +153,12 @@ li, .nav_bar {
 
 .site_name{
    align-items: center;
+}
+
+.site_title{
+    color: white;
+    background-color: #23022E;
+    border-radius: 10px;
 }
 
 .flex-item{

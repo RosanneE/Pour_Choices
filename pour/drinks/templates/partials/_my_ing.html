@@ -1,4 +1,5 @@
-<h2>My Ingredients</h2>
+<div class = 'coltwo'>
+<h2 class = 'list_title' >My Ingredients</h2>
 
 {% comment %} Ingredient list {% endcomment %}
 <div class="my_ing_list">
@@ -6,9 +7,10 @@
     {% for ingredient in ingredients%}
         {% if ingredient.ingredient_boo == True%}
             <div class = 'inline'>
-                <td><a class = 'icon' href='{% url 'ingredient_update' ingredient.id %}'>-</a></td>
+                <td><a class = 'icon_two' href='{% url 'ingredient_update' ingredient.id %}'>-</a></td>
                 <h4 class = 'ings'>{{ingredient.ingredient}}</h4>
             </div>
         {% endif %}
     {% endfor %}
+</div>
 </div>

@@ -1,29 +1,26 @@
 {% comment %} Ingredient list and Search feature - used on Home page {%
 endcomment %} {% comment %} Search {% endcomment %}
+<div class = 'colone'>
+    <h2 class = 'list_title'>{{header}}</h2>
 
-<h2>{{header}}</h2>
-
-<form class="mb-3" method="get">
-  <div class="field has-addons">
-    <div class="control">
-      <input
-        class="input"
-        type="text"
-        name="ingredient"
-        placeholder="Search Ingredients"
-      />
-    </div>
-    <div class="control">
-      <input class="button is-success" type="submit" value="Search" />
-
-      <input
-        type="button"
-        onclick="location.href='{% url 'home' %}'"
-        value="Clear Search"/>
-    </div>
-  </div>
-</form>
-
+    <form class="mb-3" method="get">
+        <div class="field has-addons">
+            <div class="control">
+            <input
+                class="input"
+                type="text"
+                name="ingredient"
+                placeholder="Search Ingredients"/>
+            </div>
+            <div class="control">
+            <input class="button is-success" type="submit" value="Search" />
+            <input
+                type="button"
+                onclick="location.href='{% url 'home' %}'"
+                value="Clear Search"/>
+            </div>
+        </div>
+    </form>
     {% comment %} Ingredient list {% endcomment %}
     <div class="ingredient_filtered_list">
     {% for ingredient in ingredients%}
@@ -35,3 +32,4 @@ endcomment %} {% comment %} Search {% endcomment %}
         {% endif %}
     {% endfor %}
     </div>
+</div>
