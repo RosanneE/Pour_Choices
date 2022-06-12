@@ -29,7 +29,7 @@ endcomment %} {% comment %} Search {% endcomment %}
     {% for ingredient in ingredients%}
         {% if ingredient.ingredient_boo == False%}
             <div class = 'inline'>
-                <td><a href='{% url 'ingredient_update' ingredient.id %}' style="color:red">-</a></td>
+                <td><a class = 'icon' href='{% url 'ingredient_update' ingredient.id %}'>+</a></td>
                 <h4 class = 'ings'>{{ingredient.ingredient}}</h4>
             </div>
         {% endif %}

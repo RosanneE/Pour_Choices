@@ -6,8 +6,7 @@
     {% for ingredient in ingredients%}
         {% if ingredient.ingredient_boo == True%}
             <div class = 'inline'>
-                <button class = 'icon' onclick=(
-                    ingredient.ingredient_boo = !ingredient.ingredient_boo)>-</button>
+                <td><a class = 'icon' href='{% url 'ingredient_update' ingredient.id %}'>-</a></td>
                 <h4 class = 'ings'>{{ingredient.ingredient}}</h4>
             </div>
         {% endif %}
