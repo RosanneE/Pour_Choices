@@ -29,7 +29,7 @@ endcomment %} {% comment %} Search {% endcomment %}
     {% for ingredient in ingredients%}
         {% if ingredient.ingredient_boo == False%}
             <div class = 'inline'>
-                <button class = 'icon'>+</button>
+                <td><a href='{% url 'ingredient_update' ingredient.id %}' style="color:red">-</a></td>
                 <h4 class = 'ings'>{{ingredient.ingredient}}</h4>
             </div>
         {% endif %}

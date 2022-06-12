@@ -18,7 +18,7 @@ class Home(TemplateView):
         # Get gets search param
         name = self.request.GET.get("ingredient")
         my_menu = MyMenu()
-        print(my_menu)
+        # print(my_menu)
         context['my_menu'] = my_menu
         # If param, will filter by param
         if name != None:
@@ -94,6 +94,12 @@ class ListUpdate(UpdateView):
     def get_success_url(self):
         return reverse('list_show', kwargs={'pk': self.object.pk})
 
+# class IngredientUpdate(UpdateView):
+#     model = Ingredients
+#     fields = ['ingredient_boo']
+
+#     return HttpResponseRedirect(reverse('my_page'))
+
 class MyPage(TemplateView):
     template_name = "my_page.html"
     def get_context_data(self, **kwargs): 
@@ -116,6 +122,21 @@ def ListDelete(request,id):
     list.delete()
     return HttpResponseRedirect(reverse('my_page'))
 
+def IngredientUpdate(request, id):
+    update = Ingredients.objects.get(id=id)
+    print(update)
+    print(update.ingredient_boo)
+    if update.ingredient_boo == False:
+        update.ingredient_boo = True
+        update.save()
+    else:
+        update.ingredient_boo = False 
+        update.save()
+    print(update)   
+    print(update.ingredient_boo)
+    return HttpResponseRedirect(reverse('home'))
+
+
 def ing_search(request):
     mying = Ingredients.objects.filter(ingredient__icontains='i').values
     template = loader.get_template('ing_search.html') 
@@ -126,14 +147,12 @@ def ing_search(request):
     }
     return HttpResponse(template.render(context, request))
 
-# def allDrinks():
-
-
 def RandomNumber():
     var = list(Drinks.objects.all())
     rand_drink = random.sample(var,1)
-    # print(type(rand_drink[0].id))
+
     return(int(rand_drink[0].id))
+
     
 def MyMenu():
     my_menu = []
@@ -141,25 +160,22 @@ def MyMenu():
     j = 0
     my_ing = Ingredients.objects.filter(ingredient_boo=True)
     my_drinks = Drinks.objects.all()
-    # print(my_drinks)
+
     for drink in my_drinks:
-        # print(drink.drink_name)
-        # print(type(drink.drink_ingredients[i]))
-        # print(type(str(my_ing[i])))
+
         if i == (len(drink.drink_ingredients)-1):
             my_menu.append(drink.drink_name)
             return
         elif drink.drink_ingredients[i] == str(my_ing[i]):
-            # print(drink.drink_name)
+
             my_menu.append(drink.drink_name)
-            print(my_menu)
+            # print(my_menu)
             i=i+1
             j=j+1
             return
-        else:
-            # print('no')
+
             return
-    print(my_menu)
+    # print(my_menu)
     return(my_menu)
 
 
