@@ -1,3 +1,4 @@
+from ast import Return
 import random
 from typing import List
 from urllib import request
@@ -155,10 +156,10 @@ def MyMenu():
 
     for drink in my_drinks:
         for each in my_drinks:
-            if check_for_ingredients(drink)== True:
-                my_menu.append(each.drink_name)
-            else:
-                my_menu.append('No Matches Found')
+            if check_for_ingredients(each)== True:
+                my_menu.append(each.drink_name)                
+        if not my_menu:
+            my_menu.append('No Matches Found')
             # my_menu.append(each.drink_name)
         # print(my_menu)
         return(my_menu)
@@ -183,17 +184,18 @@ def check_for_ingredients(drink):
     #compare each item in sub array to array items, if all items are contained return true, else return false
     while  i < (len(sub)-1):
         for each in sub:
-        #     if j<len(array):
-        #         if each == array[j]:
+                 if each == array[j]:
                     match.append(each)
                     i= i+1
-                    j= j+1
-                #     print(f'i = {i}')
-                # else:
-                #     j=j+1
-                #     print(f'j = {j}')
-    # if not match:
-    #     print("no match")
-    # else:
-    print(match)
-    return True
+                    if j<(len(array)-1):
+                        j= j+1
+
+    if not match:
+        print("no match")
+        return False
+    else:
+        if len(match) == len(sub):
+            return True
+        else:
+            return False
+        
