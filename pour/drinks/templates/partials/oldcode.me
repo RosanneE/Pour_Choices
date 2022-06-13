@@ -52,3 +52,17 @@ def check_for_ingredients(drink):
         if len(my_ingredients) == len(check):
             return True
         else:
+
+        def IngredientUpdate(request, id):
+        update = Ingredients.objects.get(id=id)
+        print(update)
+        print(update.ingredient_boo)
+        if update.ingredient_boo == False:
+            update.ingredient_boo = True
+            update.save()
+        else:
+            update.ingredient_boo = False 
+            update.save()
+        print(update)   
+        print(update.ingredient_boo)
+        return HttpResponseRedirect(reverse('home'))

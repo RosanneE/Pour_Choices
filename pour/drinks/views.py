@@ -1,6 +1,7 @@
 import random
 from typing import List
 from urllib import request
+from venv import create
 from django.views import View
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView
@@ -156,14 +157,43 @@ def MyMenu():
         for each in my_drinks:
             if check_for_ingredients(drink)== True:
                 my_menu.append(each.drink_name)
+            else:
+                my_menu.append('No Matches Found')
             # my_menu.append(each.drink_name)
         # print(my_menu)
         return(my_menu)
 
 # Compaires array to sub array, returns True or False
 def check_for_ingredients(drink):
-    my_ingredients = Ingredients.objects.filter(ingredient_boo=True).values() 
-    check = Drinks.objects.all().values()
+    array = [] 
+    sub = []
+    match=[]
+    i=0
+    j=0
+    # print(my_ing)
+    # create an array list of my ingredients
+    for each in Ingredients.objects.all():
+        if each.ingredient_boo == True:
+            array.append(each.ingredient)
+    # print(array)
+    # create an array list of drink ingredients
     for each in drink.drink_ingredients:
-        print(each)
+         sub.append(each)
+    # print(sub)
+    #compare each item in sub array to array items, if all items are contained return true, else return false
+    while  i < (len(sub)-1):
+        for each in sub:
+        #     if j<len(array):
+        #         if each == array[j]:
+                    match.append(each)
+                    i= i+1
+                    j= j+1
+                #     print(f'i = {i}')
+                # else:
+                #     j=j+1
+                #     print(f'j = {j}')
+    # if not match:
+    #     print("no match")
+    # else:
+    print(match)
     return True
