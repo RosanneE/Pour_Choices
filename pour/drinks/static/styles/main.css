@@ -60,7 +60,7 @@ li,
     border-color: white;
     border-width: 3px;
     border-style: solid;
-    height: 400px;
+    min-height: 400px;
     padding: 5px;
 }
 
@@ -71,7 +71,7 @@ li,
     border-color: white;
     border-width: 3px;
     border-style: solid;
-    height: 400px;
+    min-height: 400px;
     padding: 5px;
 }
 
@@ -82,7 +82,7 @@ li,
     border-color: white;
     border-width: 3px;
     border-style: solid;
-    height: 400px;
+    min-height: 400px;
     padding: 5px;
 }
 
