@@ -1,22 +1,54 @@
-!ingredient.ingredient_boo ? True : False
 
-<script>
-    function ToggleList()
-        ingredient.ingredient_boo = !ingredient.ingredient_boo
+_menu.html
+    {% comment %} {% for item in my_menu%}
+        <h4 class="drink_list">{{item}}</h4>    
+    {% endfor %} {% endcomment %}
     
-</script>
+    {% comment %} {% for drink in drinks%}
+        <h4 class="drink_list">{{drink.drink_name}}</h4>        
+    {% endfor %} {% endcomment %}
 
-<script>
-    def listComp()
-        sub =[]
-        arr = []
-        i=0
-        j=0
-        for ingredient in ingredients
-            if ingredient.ingredient_boo == True
-                arr.append(ingredient.ingredient_name)
-        for drink in drinks
-            sub = drink.drink_ingredients
-        while
-        
-</script>
+    {% comment %} 
+for this drink
+    get myingredients
+    if myingredients contains drink.drink_ingredients
+        if drink.drink_ingredients[0]
+        return drink
+{% endcomment %}
+
+   
+   
+my_menu = []
+i=0
+j = 0
+my_ing = Ingredients.objects.filter(ingredient_boo=True)
+my_drinks = Drinks.objects.all()
+
+for drink in my_drinks:
+
+    if i == (len(drink.drink_ingredients)-1):
+        my_menu.append(drink.drink_name)
+        return
+    elif drink.drink_ingredients[i] == str(my_ing[i]):
+
+        my_menu.append(drink.drink_name)
+        # print(my_menu)
+        i=i+1
+        j=j+1
+        return
+
+        return
+# print(my_menu)
+return(my_menu)
+
+
+def check_for_ingredients(drink):
+    my_ingredients = Ingredients.objects.filter(ingredient_boo=True).values()   
+    for each in drink.drink_ingredients:
+        check = my_ingredients.filter(ingredient__icontains=each).values()
+        # print(check)
+        print(my_ingredients)
+        print(check)
+        if len(my_ingredients) == len(check):
+            return True
+        else:

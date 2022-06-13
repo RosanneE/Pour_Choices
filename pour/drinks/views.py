@@ -82,7 +82,6 @@ class CocktailUpdate(UpdateView):
     model = Drinks
     fields = ['drink_name','drink_ingredients', 'recipie', 'glass', 'tags']
     template_name = 'cocktail_update.html'
-    # success_url = '/index/'
     def get_success_url(self):
         return reverse('cocktail_show', kwargs={'pk': self.object.pk})
     
@@ -90,15 +89,8 @@ class ListUpdate(UpdateView):
     model = Lists
     fields = ['list_title','list_descriptions']
     template_name = 'list_update.html'
-    # success_url = '/index/'
     def get_success_url(self):
         return reverse('list_show', kwargs={'pk': self.object.pk})
-
-# class IngredientUpdate(UpdateView):
-#     model = Ingredients
-#     fields = ['ingredient_boo']
-
-#     return HttpResponseRedirect(reverse('my_page'))
 
 class MyPage(TemplateView):
     template_name = "my_page.html"
@@ -150,7 +142,6 @@ def ing_search(request):
 def RandomNumber():
     var = list(Drinks.objects.all())
     rand_drink = random.sample(var,1)
-
     return(int(rand_drink[0].id))
 
     
@@ -162,21 +153,17 @@ def MyMenu():
     my_drinks = Drinks.objects.all()
 
     for drink in my_drinks:
+        for each in my_drinks:
+            if check_for_ingredients(drink)== True:
+                my_menu.append(each.drink_name)
+            # my_menu.append(each.drink_name)
+        # print(my_menu)
+        return(my_menu)
 
-        if i == (len(drink.drink_ingredients)-1):
-            my_menu.append(drink.drink_name)
-            return
-        elif drink.drink_ingredients[i] == str(my_ing[i]):
-
-            my_menu.append(drink.drink_name)
-            # print(my_menu)
-            i=i+1
-            j=j+1
-            return
-
-            return
-    # print(my_menu)
-    return(my_menu)
-
-
-
+# Compaires array to sub array, returns True or False
+def check_for_ingredients(drink):
+    my_ingredients = Ingredients.objects.filter(ingredient_boo=True).values() 
+    check = Drinks.objects.all().values()
+    for each in drink.drink_ingredients:
+        print(each)
+    return True

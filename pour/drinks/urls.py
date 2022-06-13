@@ -15,5 +15,4 @@ urlpatterns = [
     path('ingredient_update/<int:id>', views.IngredientUpdate, name='ingredient_update'),
     path('my_page/<int:pk>/list_update/', views.ListUpdate.as_view(),  name='list_update'),
     path('ing_search/', views.ing_search, name='ingredients'),
-    # path('my_page/<int:pk>/drinks/<int:drink_pk>/', views.ListDrinkAssoc.as_view(), name="list_song_assoc"),
 ]

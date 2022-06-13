@@ -46,3 +46,4 @@ class Lists(models.Model):
 
     def __str__(self):
         return self.list_title
+
