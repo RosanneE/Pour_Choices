@@ -1,6 +1,6 @@
 from ast import Return
 import random
-import re
+import difflib
 from typing import List
 from urllib import request
 from venv import create
@@ -23,7 +23,7 @@ class Home(TemplateView):
         my_menu = MyMenu()
         # my_menu = 'broken'
         #MyMenu()
-        print(my_menu)
+        # print(my_menu)
         context['my_menu'] = my_menu
         # If param, will filter by param
         if name != None:
@@ -152,9 +152,6 @@ def RandomNumber():
     
 def MyMenu():
     my_menu = []
-    i=0
-    j = 0
-    my_ing = Ingredients.objects.filter(ingredient_boo=True)
     my_drinks = Drinks.objects.all()
 
     for drink in my_drinks:
@@ -163,7 +160,7 @@ def MyMenu():
                 my_menu.append(each.drink_name)                
         if not my_menu:
             my_menu.append('No Matches Found')
-        print(my_menu)
+        print(f'my menu = {my_menu}')
         return(my_menu)
 
 # Compaires array to sub array, returns True or False
@@ -178,44 +175,27 @@ def CreateArrays(drink):
     # create an array list of drink ingredients
     for each in drink.drink_ingredients:
          sub.append(each)
-    CheckArrays(array, sub)
+    CompareArray(array, sub)
 
 # Compaires array to sub array, returns True or False
-def CheckArrays(array, sub):
+def CompareArray(array, sub):
     match=[]
-    i=0
-    j=0
     #compare each item in sub array to array items, if all items are contained return true, else return false
             # match.append(each)
-    print(f'each = {each}')
-    print(f'sub = {sub}')
-    print(f'array = {array}')
-    print(f'array[j] = {array[i]}')
-
-
-
-
-
-
-    return False
-    # while  i < (len(sub)-1):
-    #     for each in array:
-    #         # print(array[j])
-    #         if each == array[j]:
-    #             match.append(each)
-    #             if i<(len(array)-1):
-    #                 i= i+1
-    #                 j = j+1
-    #             else:
-    #                 j=j+1
-    #         if not match:
-    #             print("no match")
-    #             return False
-    #         else:
-    #             print(match)
-    #             print(each)
-    #             if len(match) == len(each):
-    #                 return True
-    #             else:
-    #                 return False
-    
+    # print(f'sub = {sub}')
+    # print(f'array = {array}')
+    # print(f'array[i] = {array[i]}'
+    for each in sub:  
+        for eachArr in array:
+            arrUnspaced = eachArr.replace(" ", "")
+            if each == arrUnspaced:
+                match.append(each)
+                print(f'{each} == {arrUnspaced} YAY!!!')
+            else:
+                print(f'{each} != {arrUnspaced}')
+    print(f'match = {match}')
+    # print(f'sub = {sub}')
+    if len(match) == len(sub):
+        return True
+    else:
+        return False
