@@ -153,10 +153,12 @@ def RandomNumber():
 def MyMenu():
     my_menu = []
     my_drinks = Drinks.objects.all()
+    print(my_drinks)
 
     for drink in my_drinks:
         for each in my_drinks:
-            if CreateArrays(drink)== True:
+            print(each)
+            if CreateArrays(each)== True:
                 my_menu.append(each.drink_name)                
         if not my_menu:
             my_menu.append('No Matches Found')
@@ -175,26 +177,24 @@ def CreateArrays(drink):
     # create an array list of drink ingredients
     for each in drink.drink_ingredients:
          sub.append(each)
-    CompareArray(array, sub)
+    return CompareArray(array, sub)
 
 # Compaires array to sub array, returns True or False
 def CompareArray(array, sub):
     match=[]
     #compare each item in sub array to array items, if all items are contained return true, else return false
             # match.append(each)
-    # print(f'sub = {sub}')
-    # print(f'array = {array}')
-    # print(f'array[i] = {array[i]}'
     for each in sub:  
         for eachArr in array:
             arrUnspaced = eachArr.replace(" ", "")
-            if each == arrUnspaced:
+            eachUnspaced = each.replace(" ", "")
+            if eachUnspaced == arrUnspaced:
                 match.append(each)
                 print(f'{each} == {arrUnspaced} YAY!!!')
             else:
                 print(f'{each} != {arrUnspaced}')
     print(f'match = {match}')
-    # print(f'sub = {sub}')
+    print(f'sub = {sub}')
     if len(match) == len(sub):
         return True
     else:
