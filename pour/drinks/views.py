@@ -170,8 +170,6 @@ def MyMenu():
 def CreateArrays(drink):
     array = [] 
     sub = []
-    i=0
-    # print(my_ing)
     # create an array list of my ingredients
     for each in Ingredients.objects.all():
         if each.ingredient_boo == True:
@@ -180,16 +178,26 @@ def CreateArrays(drink):
     # create an array list of drink ingredients
     for each in drink.drink_ingredients:
          sub.append(each)
-    CheckArrays(array, sub, each, i)
+    CheckArrays(array, sub)
 
 # Compaires array to sub array, returns True or False
-def CheckArrays(array, sub, each, i):
+def CheckArrays(array, sub):
     match=[]
+    i=0
     j=0
     #compare each item in sub array to array items, if all items are contained return true, else return false
             # match.append(each)
     print(f'each = {each}')
+    print(f'sub = {sub}')
+    print(f'array = {array}')
     print(f'array[j] = {array[i]}')
+
+
+
+
+
+
+    return False
     # while  i < (len(sub)-1):
     #     for each in array:
     #         # print(array[j])
@@ -210,3 +218,4 @@ def CheckArrays(array, sub, each, i):
     #                 return True
     #             else:
     #                 return False
+    
