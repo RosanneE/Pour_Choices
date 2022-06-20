@@ -1,5 +1,6 @@
 from ast import Return
 import random
+import re
 from typing import List
 from urllib import request
 from venv import create
@@ -20,7 +21,9 @@ class Home(TemplateView):
         # Get gets search param
         name = self.request.GET.get("ingredient")
         my_menu = MyMenu()
-        # print(my_menu)
+        # my_menu = 'broken'
+        #MyMenu()
+        print(my_menu)
         context['my_menu'] = my_menu
         # If param, will filter by param
         if name != None:
@@ -156,21 +159,18 @@ def MyMenu():
 
     for drink in my_drinks:
         for each in my_drinks:
-            if check_for_ingredients(each)== True:
+            if CreateArrays(drink)== True:
                 my_menu.append(each.drink_name)                
         if not my_menu:
             my_menu.append('No Matches Found')
-            # my_menu.append(each.drink_name)
-        # print(my_menu)
+        print(my_menu)
         return(my_menu)
 
 # Compaires array to sub array, returns True or False
-def check_for_ingredients(drink):
+def CreateArrays(drink):
     array = [] 
     sub = []
-    match=[]
     i=0
-    j=0
     # print(my_ing)
     # create an array list of my ingredients
     for each in Ingredients.objects.all():
@@ -180,22 +180,33 @@ def check_for_ingredients(drink):
     # create an array list of drink ingredients
     for each in drink.drink_ingredients:
          sub.append(each)
-    # print(sub)
-    #compare each item in sub array to array items, if all items are contained return true, else return false
-    while  i < (len(sub)-1):
-        for each in sub:
-                 if each == array[j]:
-                    match.append(each)
-                    i= i+1
-                    if j<(len(array)-1):
-                        j= j+1
+    CheckArrays(array, sub, each, i)
 
-    if not match:
-        print("no match")
-        return False
-    else:
-        if len(match) == len(sub):
-            return True
-        else:
-            return False
-        
+# Compaires array to sub array, returns True or False
+def CheckArrays(array, sub, each, i):
+    match=[]
+    j=0
+    #compare each item in sub array to array items, if all items are contained return true, else return false
+            # match.append(each)
+    print(f'each = {each}')
+    print(f'array[j] = {array[i]}')
+    # while  i < (len(sub)-1):
+    #     for each in array:
+    #         # print(array[j])
+    #         if each == array[j]:
+    #             match.append(each)
+    #             if i<(len(array)-1):
+    #                 i= i+1
+    #                 j = j+1
+    #             else:
+    #                 j=j+1
+    #         if not match:
+    #             print("no match")
+    #             return False
+    #         else:
+    #             print(match)
+    #             print(each)
+    #             if len(match) == len(each):
+    #                 return True
+    #             else:
+    #                 return False
