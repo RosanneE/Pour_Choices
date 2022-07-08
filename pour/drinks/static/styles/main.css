@@ -36,12 +36,15 @@ nav {
     text-align: center;
 }
 
+ul{
+    align-content: center;
+}
+
 li,
 .nav_bar {
     text-align: center;
     display: inline-block;
     margin: 8px;
-    text-align: center;
 }
 
 .base_style {
@@ -173,7 +176,8 @@ a.lList{
 }
 
 .nav_bar {
-    text-align: center;
+    display: flex;
+    justify-content: center;
 }
 
 .row {

@@ -1,10 +1,12 @@
 
 <div class = 'colthree'>
-<h2 class = 'list_title'>My Cocktail Menu</h2>
+<h2 class = 'list_title'>My Cocktail Menu BAM</h2>
 
 {% comment %} Ingredient list {% endcomment %}
 <div >
-    <h4>{{my_menu}}</h4>
+    <h4 class = 'menu'>{% for each in my_menu%}
+        {{each}}  
+      {% endfor %}</h4>
 
 </div>
 
