@@ -128,7 +128,6 @@ li,
 
 .ings {
     display: inline-block;
-    font-size: 20px;
 }
 
 .ings_list{
@@ -149,9 +148,9 @@ li,
     text-align: center;
 }
 
-.inline {
+/* .inline {
     flex-direction: column;
-}
+} */
 
 .list_title {
     text-align: center;
